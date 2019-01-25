@@ -1,0 +1,14 @@
+d0cd19c5f91d44cc39118869d89e8343 *DESCRIPTION
+4ddd17b0c9241d7b24a4960caefe8e40 *LICENSE
+79ac15f2c796ccb3748bf50bb18e0ead *NAMESPACE
+c45fb0b818818a081ea00b2714954501 *R/provSummarizeR.R
+1f05db8125ba9fb4febe9dc59b15d3d6 *README.md
+3bd3b7810625fb421d2ecbaa4d569520 *inst/testdata/Console.R
+0bc01768a881866a8cfbb7adbae3e0cb *inst/testdata/console.json
+ba1f7119729e353f2b48f1b261a35aaa *inst/testdata/prov.json
+45332a08c2999ef0b6f01dfdc07499d2 *inst/testscript/prov_warnings/prov.json
+3c87e73e0d9a01fa6b330e2b11ad0da1 *inst/testscript/prov_warnings/scripts/warnings.R
+3c87e73e0d9a01fa6b330e2b11ad0da1 *inst/testscript/warnings.R
+9c3cb590484b85b46d784515e607712e *man/summarize.Rd
+d74c076f2c9b8cdc5a39328b5ccadd26 *tests/testthat.R
+50b6f3f3546a992f497f1798c718bc07 *tests/testthat/test_provSummzarize.R
