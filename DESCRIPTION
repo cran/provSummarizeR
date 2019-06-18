@@ -1,8 +1,8 @@
 Package: provSummarizeR
 Title: Summarizes Provenance Related to Inputs and Outputs of a Script
         or Console Commands
-Version: 1.0
-Date: 2019-01-09
+Version: 1.1
+Date: 2019-06-18
 Authors@R: c( person("Barbara", "Lerner", role = "cre",
                       email = "blerner@mtholyoke.edu"),
               person("Emery", "Boose", role = "aut",
@@ -27,16 +27,16 @@ Depends: R (>= 3.5)
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: dplyr, provParseR
+Imports: dplyr, provParseR (>= 0.1.2)
 Suggests: rdtLite, rdt, testthat
 Additional_repositories: https://end-to-end-provenance.github.io/drat/
 URL: https://github.com/End-to-end-provenance
 BugReports: https://github.com/End-to-end-provenance/provSummarizeR/issues
 RoxygenNote: 6.1.1
 NeedsCompilation: no
-Packaged: 2019-01-16 22:22:49 UTC; blerner
+Packaged: 2019-06-18 18:13:03 UTC; blerner
 Author: Barbara Lerner [cre],
   Emery Boose [aut]
 Maintainer: Barbara Lerner <blerner@mtholyoke.edu>
 Repository: CRAN
-Date/Publication: 2019-01-25 16:50:03 UTC
+Date/Publication: 2019-06-18 21:40:04 UTC
