@@ -1,12 +1,12 @@
 PROVENANCE SUMMARY for prov.R 
 
 ENVIRONMENT:
-Executed at 2019-09-09T11.20.19EDT 
-Total execution time is 1.459 seconds
-Script last modified at 2019-08-27T14.42.47EDT 
+Executed at 2019-12-06T14.12.28EST 
+Total execution time is 1.404 seconds
+Script last modified at 2019-12-06T14.11.01EST 
 Executed with R version 3.6.0 (2019-04-26) 
 Executed on x86_64 running darwin15.6.0 
-Provenance was collected with rdtLite 1.1.1 
+Provenance was collected with rdtLite 1.2.1 
 Provenance is stored in /Users/blerner/Documents/Process/DataProvenance/workspace/provSummarizeR/inst/testscripts/prov_prov 
 Hash algorithm is md5 
 
@@ -26,12 +26,12 @@ SOURCED SCRIPTS:
 
 INPUTS: 
 File : in.txt 
-   2019-09-09T11.20.20EDT 
+   2019-12-06T14.12.29EST 
    732d814761d044c919425662375691de 
 
 OUTPUTS: 
 File : out.txt 
-   2019-09-09T11.20.20EDT 
+   2019-12-06T14.12.29EST 
    732d814761d044c919425662375691de 
 
 CONSOLE:

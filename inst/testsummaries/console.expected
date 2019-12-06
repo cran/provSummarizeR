@@ -1,12 +1,12 @@
 PROVENANCE SUMMARY for console.R 
 
 ENVIRONMENT:
-Executed at 2019-09-09T11.20.04EDT 
-Total execution time is 1.19 seconds
+Executed at 2019-12-06T14.11.49EST 
+Total execution time is 1.211 seconds
 Script last modified at 2019-08-12T16.53.18EDT 
 Executed with R version 3.6.0 (2019-04-26) 
 Executed on x86_64 running darwin15.6.0 
-Provenance was collected with rdtLite 1.1.1 
+Provenance was collected with rdtLite 1.2.1 
 Provenance is stored in /Users/blerner/Documents/Process/DataProvenance/workspace/provSummarizeR/inst/testscripts/prov_console 
 Hash algorithm is md5 
 
@@ -25,7 +25,7 @@ None
 
 INPUTS: 
 File : Console.R 
-   2019-09-09T11.20.05EDT 
+   2019-12-06T14.11.51EST 
    3bd3b7810625fb421d2ecbaa4d569520 
 
 OUTPUTS: 

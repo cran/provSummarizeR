@@ -1,12 +1,12 @@
 PROVENANCE SUMMARY for files.R 
 
 ENVIRONMENT:
-Executed at 2019-09-09T11.20.10EDT 
-Total execution time is 1.332 seconds
+Executed at 2019-12-06T14.12.09EST 
+Total execution time is 1.431 seconds
 Script last modified at 2019-08-12T16.53.18EDT 
 Executed with R version 3.6.0 (2019-04-26) 
 Executed on x86_64 running darwin15.6.0 
-Provenance was collected with rdtLite 1.1.1 
+Provenance was collected with rdtLite 1.2.1 
 Provenance is stored in /Users/blerner/Documents/Process/DataProvenance/workspace/provSummarizeR/inst/testscripts/prov_files 
 Hash algorithm is md5 
 
@@ -25,15 +25,15 @@ None
 
 INPUTS: 
 File : warnings.R 
-   2019-09-09T11.20.11EDT 
+   2019-12-06T14.12.10EST 
    3c87e73e0d9a01fa6b330e2b11ad0da1 
 URL : https://harvardforest.fas.harvard.edu/ 
-   2019-09-09T11.20.14EDT 
-   3c105d4318efab16efe9b012f8916dc9 
+   2019-12-06T14.12.13EST 
+   fd6e4e1b1f31c47940fa487d7de3fdd7 
 
 OUTPUTS: 
-File : file1049a7028ddc1 
-   2019-09-09T11.20.14EDT 
+File : filece4238995852 
+   2019-12-06T14.12.13EST 
    3c87e73e0d9a01fa6b330e2b11ad0da1 
 
 CONSOLE:
