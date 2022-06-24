@@ -1,47 +1,59 @@
-PROVENANCE SUMMARY for files.R 
+PROVENANCE SUMMARY for files.R (details)
 
 ENVIRONMENT:
-Executed at 2020-07-17T14.34.04EDT 
-Total execution time is 1.429 seconds
-Script last modified at 2019-08-12T16.53.18EDT 
-Executed with R version 4.0.0 (2020-04-24) 
-Executed on x86_64-apple-darwin17.0 (64-bit) running macOS Catalina 10.15.5 
-Provenance was collected with rdtLite 1.3 
-Provenance is stored in /Users/blerner/Documents/Process/DataProvenance/workspace/provSummarizeR/inst/testscripts/prov_files 
-Hash algorithm is md5 
+Executed at 2022-06-23T15.36.57EDT
+Total execution time was 1.31 seconds
+Script last modified at 2022-06-23T12.03.21EDT
+Executed with R version 4.2.0 (2022-04-22 ucrt)
+Platform was x86_64-w64-mingw32/x64 (64-bit)
+Operating system was Windows 10 x64 (build 19044)
+Provenance was collected with rdtLite1.3.1
+Provenance is stored in C:/GitHub/provSummarizeR/inst/testscripts/prov_files
+Hash algorithm is md5
 
 LIBRARIES:
-base 4.0.0
-datasets 4.0.0
-ggplot2 3.3.2
-graphics 4.0.0
-grDevices 4.0.0
-methods 4.0.0
-stats 4.0.0
-utils 4.0.0
+base 4.2.0
+datasets 4.2.0
+ggplot2 3.3.6
+graphics 4.2.0
+grDevices 4.2.0
+methods 4.2.0
+stats 4.2.0
+utils 4.2.0
 
-SOURCED SCRIPTS:
-None
+SCRIPTS:
+1[ ] C:/GitHub/provSummarizeR/inst/testscripts/files.R
+     2022-06-23T12.03.21EDT
+     ae31322b17deab5b5fdd69fdf1810dc5
+     scripts/files.R
 
 PRE-EXISTING:
 None
 
-INPUTS: 
-File : /Users/blerner/Documents/Process/DataProvenance/workspace/provSummarizeR/inst/testscripts/warnings.r 
-   2019-08-12T16.53.18EDT 
-   3c87e73e0d9a01fa6b330e2b11ad0da1 
-URL : https://harvardforest.fas.harvard.edu/ 
-   2020-07-17T14.34.06EDT 
-   aa38261037179175dfcea164002fe017 
+INPUTS:
+1[ ] C:/GitHub/provSummarizeR/inst/testscripts/warnings.r
+     2022-06-07T12.27.00EDT
+     899e9c9716660a967355bd5dac1a4ff0
+     data/1-warnings.r
+2[ ] https://harvardforest.fas.harvard.edu/
+     2022-06-23T15.36.58EDT
+     1924c8a42751543544893ca2ec3b5a30
+     data/3-harvardforest.fas.harvard.edu
 
-OUTPUTS: 
-File : /private/var/folders/66/3lfdj29j1wb48v_s298qtbwm0000gn/T/RtmpZdkdfu/file6c9f8623178 
-   2020-07-17T14.34.06EDT 
-   3c87e73e0d9a01fa6b330e2b11ad0da1 
+OUTPUTS:
+1[ ] C:/Users/erb709/AppData/Local/Temp/Rtmp82Bb8C/file40f4345b7e2a
+     2022-06-23T15.36.58EDT
+     899e9c9716660a967355bd5dac1a4ff0
+     data/5-file40f4345b7e2a
 
 CONSOLE:
 None
 
 ERRORS:
 None
+
+NOTE: Files are listed in the order of execution (script 1 = main script).
+The status of each file in its original location is marked as follows:
+File unchanged [:], File changed [+], File missing [-], Not checked [ ].
+Copies of original files are available on the provenance directory.
 

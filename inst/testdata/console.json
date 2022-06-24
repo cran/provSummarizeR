@@ -7,7 +7,7 @@
 	"agent" : {
 		"rdt:a1": {
 			"rdt:tool.name": "rdtLite",
-			"rdt:tool.version": "1.3",
+			"rdt:tool.version": "1.3.1",
 			"rdt:json.version": "2.3",
 			"rdt:args.names": [
 				"overwrite",
@@ -34,7 +34,7 @@
 		"rdt:p1": {
 			"rdt:name": "console.R",
 			"rdt:type": "Start",
-			"rdt:elapsedTime": "0.906",
+			"rdt:elapsedTime": "0.88",
 			"rdt:scriptNum": 1,
 			"rdt:startLine": "NA",
 			"rdt:startCol": "NA",
@@ -44,7 +44,7 @@
 		"rdt:p2": {
 			"rdt:name": "a <- 1",
 			"rdt:type": "Operation",
-			"rdt:elapsedTime": "0.13",
+			"rdt:elapsedTime": "0.11",
 			"rdt:scriptNum": 1,
 			"rdt:startLine": 2,
 			"rdt:startCol": 1,
@@ -54,7 +54,7 @@
 		"rdt:p3": {
 			"rdt:name": "input <- readLines (\"Console.R\")",
 			"rdt:type": "Operation",
-			"rdt:elapsedTime": "0.113",
+			"rdt:elapsedTime": "0.09",
 			"rdt:scriptNum": 1,
 			"rdt:startLine": 3,
 			"rdt:startCol": 1,
@@ -64,7 +64,7 @@
 		"rdt:p4": {
 			"rdt:name": "sort (input)",
 			"rdt:type": "Operation",
-			"rdt:elapsedTime": "0.082",
+			"rdt:elapsedTime": "0.11",
 			"rdt:scriptNum": 1,
 			"rdt:startLine": 4,
 			"rdt:startCol": 1,
@@ -74,7 +74,7 @@
 		"rdt:p5": {
 			"rdt:name": "console.R",
 			"rdt:type": "Finish",
-			"rdt:elapsedTime": "0.004",
+			"rdt:elapsedTime": "0.0",
 			"rdt:scriptNum": 1,
 			"rdt:startLine": "NA",
 			"rdt:startCol": "NA",
@@ -102,9 +102,9 @@
 			"rdt:type": "File",
 			"rdt:scope": "undefined",
 			"rdt:fromEnv": false,
-			"rdt:hash": "3bd3b7810625fb421d2ecbaa4d569520",
-			"rdt:timestamp": "2019-08-12T16.53.18EDT",
-			"rdt:location": "/Users/blerner/Documents/Process/DataProvenance/workspace/provSummarizeR/inst/testscripts/console.R"
+			"rdt:hash": "c7cf52a3ea1b34ed3ae28d54edd6a3e1",
+			"rdt:timestamp": "2021-10-07T11.26.17EDT",
+			"rdt:location": "C:/GitHub/provSummarizeR/inst/testscripts/console.R"
 		},
 		"rdt:d3": {
 			"rdt:name": "input",
@@ -114,32 +114,32 @@
 			"rdt:scope": "R_GlobalEnv",
 			"rdt:fromEnv": false,
 			"rdt:hash": "",
-			"rdt:timestamp": "2020-07-17T14.33.57EDT",
+			"rdt:timestamp": "2022-06-23T15.36.54EDT",
 			"rdt:location": ""
 		},
 
 		"rdt:environment": {
 			"rdt:name": "environment",
-			"rdt:architecture": "x86_64-apple-darwin17.0 (64-bit)",
-			"rdt:operatingSystem": "macOS Catalina 10.15.5",
+			"rdt:architecture": "x86_64-w64-mingw32/x64 (64-bit)",
+			"rdt:operatingSystem": "Windows 10 x64 (build 19044)",
 			"rdt:language": "R",
-			"rdt:langVersion": "R version 4.0.0 (2020-04-24)",
-			"rdt:script": "/Users/blerner/Documents/Process/DataProvenance/workspace/provSummarizeR/inst/testscripts/console.R",
-			"rdt:scriptTimeStamp": "2019-08-12T16.53.18EDT",
-			"rdt:scriptHash": "3bd3b7810625fb421d2ecbaa4d569520",
-			"rdt:totalElapsedTime": "1.235",
+			"rdt:langVersion": "R version 4.2.0 (2022-04-22 ucrt)",
+			"rdt:script": "C:/GitHub/provSummarizeR/inst/testscripts/console.R",
+			"rdt:scriptTimeStamp": "2021-10-07T11.26.17EDT",
+			"rdt:scriptHash": "c7cf52a3ea1b34ed3ae28d54edd6a3e1",
+			"rdt:totalElapsedTime": "1.19",
 			"rdt:sourcedScripts": "",
 			"rdt:sourcedScriptTimeStamps": "",
 			"rdt:sourcedScriptHashes": "",
-			"rdt:workingDirectory": "/Users/blerner/Documents/Process/DataProvenance/workspace/provSummarizeR/inst/testscripts",
-			"rdt:provDirectory": "/Users/blerner/Documents/Process/DataProvenance/workspace/provSummarizeR/inst/testscripts/prov_console",
-			"rdt:provTimestamp": "2020-07-17T14.33.56EDT",
+			"rdt:workingDirectory": "C:/GitHub/provSummarizeR/inst/testscripts",
+			"rdt:provDirectory": "C:/GitHub/provSummarizeR/inst/testscripts/prov_console",
+			"rdt:provTimestamp": "2022-06-23T15.36.53EDT",
 			"rdt:hashAlgorithm": "md5"
 		},
 
 		"rdt:l1": {
 			"name": "base",
-			"version": "4.0.0",
+			"version": "4.2.0",
 			"prov:type": {
 				"$": "prov:Collection",
 				"type": "xsd:QName"
@@ -147,7 +147,7 @@
 		},
 		"rdt:l2": {
 			"name": "datasets",
-			"version": "4.0.0",
+			"version": "4.2.0",
 			"prov:type": {
 				"$": "prov:Collection",
 				"type": "xsd:QName"
@@ -155,7 +155,7 @@
 		},
 		"rdt:l3": {
 			"name": "ggplot2",
-			"version": "3.3.2",
+			"version": "3.3.6",
 			"prov:type": {
 				"$": "prov:Collection",
 				"type": "xsd:QName"
@@ -163,7 +163,7 @@
 		},
 		"rdt:l4": {
 			"name": "graphics",
-			"version": "4.0.0",
+			"version": "4.2.0",
 			"prov:type": {
 				"$": "prov:Collection",
 				"type": "xsd:QName"
@@ -171,7 +171,7 @@
 		},
 		"rdt:l5": {
 			"name": "grDevices",
-			"version": "4.0.0",
+			"version": "4.2.0",
 			"prov:type": {
 				"$": "prov:Collection",
 				"type": "xsd:QName"
@@ -179,7 +179,7 @@
 		},
 		"rdt:l6": {
 			"name": "methods",
-			"version": "4.0.0",
+			"version": "4.2.0",
 			"prov:type": {
 				"$": "prov:Collection",
 				"type": "xsd:QName"
@@ -187,7 +187,7 @@
 		},
 		"rdt:l7": {
 			"name": "stats",
-			"version": "4.0.0",
+			"version": "4.2.0",
 			"prov:type": {
 				"$": "prov:Collection",
 				"type": "xsd:QName"
@@ -195,7 +195,7 @@
 		},
 		"rdt:l8": {
 			"name": "utils",
-			"version": "4.0.0",
+			"version": "4.2.0",
 			"prov:type": {
 				"$": "prov:Collection",
 				"type": "xsd:QName"

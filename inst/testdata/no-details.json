@@ -32,9 +32,9 @@
 
 	"activity" : {
 		"rdt:p1": {
-			"rdt:name": "prov.R",
+			"rdt:name": "no-details.R",
 			"rdt:type": "Start",
-			"rdt:elapsedTime": "0.8",
+			"rdt:elapsedTime": "0.86",
 			"rdt:scriptNum": 1,
 			"rdt:startLine": "NA",
 			"rdt:startCol": "NA",
@@ -44,7 +44,7 @@
 		"rdt:p2": {
 			"rdt:name": "library(utils)",
 			"rdt:type": "Operation",
-			"rdt:elapsedTime": "0.1",
+			"rdt:elapsedTime": "0.09",
 			"rdt:scriptNum": 1,
 			"rdt:startLine": 1,
 			"rdt:startCol": 1,
@@ -74,7 +74,7 @@
 		"rdt:p5": {
 			"rdt:name": "print (input)",
 			"rdt:type": "Operation",
-			"rdt:elapsedTime": "0.08",
+			"rdt:elapsedTime": "0.1",
 			"rdt:scriptNum": 1,
 			"rdt:startLine": 5,
 			"rdt:startCol": 1,
@@ -84,7 +84,7 @@
 		"rdt:p6": {
 			"rdt:name": "source (\"script2.r\")",
 			"rdt:type": "Operation",
-			"rdt:elapsedTime": "0.14",
+			"rdt:elapsedTime": "0.11",
 			"rdt:scriptNum": 1,
 			"rdt:startLine": 7,
 			"rdt:startCol": 1,
@@ -92,7 +92,7 @@
 			"rdt:endCol": 20
 		},
 		"rdt:p7": {
-			"rdt:name": "prov.R",
+			"rdt:name": "no-details.R",
 			"rdt:type": "Finish",
 			"rdt:elapsedTime": "0.0",
 			"rdt:scriptNum": 1,
@@ -123,7 +123,7 @@
 			"rdt:scope": "R_GlobalEnv",
 			"rdt:fromEnv": false,
 			"rdt:hash": "",
-			"rdt:timestamp": "2022-06-23T15.37.02EDT",
+			"rdt:timestamp": "2022-06-23T15.30.18EDT",
 			"rdt:location": ""
 		},
 		"rdt:d3": {
@@ -145,7 +145,7 @@
 			"rdt:scope": "Standard output",
 			"rdt:fromEnv": false,
 			"rdt:hash": "",
-			"rdt:timestamp": "2022-06-23T15.37.03EDT",
+			"rdt:timestamp": "2022-06-23T15.30.18EDT",
 			"rdt:location": ""
 		},
 		"rdt:d5": {
@@ -156,7 +156,7 @@
 			"rdt:scope": "undefined",
 			"rdt:fromEnv": false,
 			"rdt:hash": "07effd7992ea26fbd9bd23deffb1d9d7",
-			"rdt:timestamp": "2022-06-23T15.37.03EDT",
+			"rdt:timestamp": "2022-06-23T15.30.18EDT",
 			"rdt:location": "C:/GitHub/provSummarizeR/inst/testscripts/out.txt"
 		},
 
@@ -166,16 +166,16 @@
 			"rdt:operatingSystem": "Windows 10 x64 (build 19044)",
 			"rdt:language": "R",
 			"rdt:langVersion": "R version 4.2.0 (2022-04-22 ucrt)",
-			"rdt:script": "C:/GitHub/provSummarizeR/inst/testscripts/prov.R",
+			"rdt:script": "C:/GitHub/provSummarizeR/inst/testscripts/no-details.R",
 			"rdt:scriptTimeStamp": "2022-06-07T12.26.50EDT",
 			"rdt:scriptHash": "f1cebde34b6243598ef8eb22c0107966",
-			"rdt:totalElapsedTime": "1.32",
+			"rdt:totalElapsedTime": "1.36",
 			"rdt:sourcedScripts": "C:/GitHub/provSummarizeR/inst/testscripts/script2.r",
 			"rdt:sourcedScriptTimeStamps": "2022-06-07T12.26.55EDT",
 			"rdt:sourcedScriptHashes": "0b2c8d4e6ad7245d03b6c3361a710eee",
 			"rdt:workingDirectory": "C:/GitHub/provSummarizeR/inst/testscripts",
-			"rdt:provDirectory": "C:/GitHub/provSummarizeR/inst/testscripts/prov_prov",
-			"rdt:provTimestamp": "2022-06-23T15.37.01EDT",
+			"rdt:provDirectory": "C:/GitHub/provSummarizeR/inst/testscripts/prov_no-details",
+			"rdt:provTimestamp": "2022-06-23T15.30.17EDT",
 			"rdt:hashAlgorithm": "md5"
 		},
 
