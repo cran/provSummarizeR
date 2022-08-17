@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<meta name="date" content="2022-08-17" />
+
+<title>Overview of provSummarizeR</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Overview of provSummarizeR</h1>
+<h4 class="date">17 August 2022</h4>
+
+
+
+<div id="provsummarizer" class="section level1">
+<h1>provSummarizeR</h1>
+<p>Reads the provenance collected by rdtLite or rdt from execution of a
+script or commands in the console. Creates a human-readable summary of
+the provenance, including details on the computing environment, loaded
+libraries, scripts used, input and output files, console output, and
+error and warning messages. The summary is optionally saved to a text
+file and all related provenance files are optionally packaged in a zip
+file.</p>
+</div>
+<div id="installation" class="section level1">
+<h1>Installation</h1>
+<p>Install from GitHub:</p>
+<pre><code>devtools::install_github(&quot;End-to-end-provenance/provSummarizeR&quot;)</code></pre>
+<p>Once installed, load the package:</p>
+<pre><code>library(&quot;provSummarizeR&quot;)</code></pre>
+</div>
+<div id="usage" class="section level1">
+<h1>Usage</h1>
+<p>The summarize functions can be used in one of three ways.</p>
+<ol style="list-style-type: decimal">
+<li>To sumarize the last provenance collected in the current R
+session:</li>
+</ol>
+<pre><code>prov.summarize ()</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>To summarize provenance that was collected in the past and stored in
+the file <i>prov.json</i> on the directory <i>prov_script</i>:</li>
+</ol>
+<pre><code>prov.summarize.file (&quot;prov_script/prov.json&quot;)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>To run the script <i>script.R</i>, collect provenance, and summarize
+the provenance all in one step:</li>
+</ol>
+<pre><code>prov.summarize.run (&quot;script.R&quot;)</code></pre>
+<p>All three functions have six optional parameters: <i>details</i>,
+<i>check</i>, <i>console</i>, <i>save</i>, <i>create.zip</i>, and
+<i>notes</i>.</p>
+<p>If <i>details</i> is TRUE, loaded libraries (with version numbers),
+file details (timestamp, hash value, saved copy) and messsage details
+(script and line numbers) are displayed. Libraries include packages
+loaded by the user’s code, loaded before the script started, or loaded
+by rdtLite or rdt. The default value of <i>details</i> is FALSE.</p>
+<p>If <i>details</i> is FALSE, only libraries loaded by the user’s code
+at the time of execution are displayed. Note that some libraries used by
+the script might have been loaded before the script was executed. Use
+details = TRUE to see a complete list of loaded libraries.</p>
+<p>If <i>check</i> is TRUE, the user’s file system is checked to see if
+input files, output files, and scripts (in their original locations) are
+unchanged, changed, or missing. File status is marked as follows:
+unchanged [:], changed [+], missing [-], or not checked [ ]. The default
+value of <i>check</i> is TRUE.</p>
+<p>If <i>console</i> is TRUE, the summary is displayed in the console.
+The default value of <i>console</i> is TRUE.</p>
+<p>If <i>save</i> is TRUE, the summary is saved to the text file
+<i>prov-summary.txt</i> or <i>prov-summary-details.txt</i> (depending on
+the value of <i>details</i>) and is stored in the current working
+directory. The default value of <i>save</i> is FALSE.</p>
+<p>If <i>create.zip</i> is TRUE, the provenance directory is packaged
+into a timestamped zip file and placed in the current working directory.
+This file contains a copy of all input and output files and scripts
+used, as well as the provenance summary text file, if <i>save</i> is
+TRUE. It also includes the <i>prov.json</i> file containing the detailed
+execution trace. The default value of <i>create.zip</i> is FALSE.</p>
+<p>If <i>notes</i> is TRUE, notes are included for how to interpret the
+provenance summary. The default value of <i>notes</i> is TRUE.</p>
+<p>Creating the zip file depends on use of an external zip program. This
+feature has been tested with zip for Unix/Mac OS and with 7z on Windows.
+It may or may not work with other zip programs. To use a program other
+than zip, set the R_ZIPCMD environment variable.</p>
+</div>
+<div id="examples" class="section level1">
+<h1>Examples</h1>
+<p>Here is an example of a summary with details = FALSE. The first line
+contains the name of the main R script. The ENVIRONMENT section includes
+information describing how and when the script was executed and how the
+provenance was collected. The LIBRARIES section includes libraries that
+were loaded by the user’s script along with their version numbers. The
+SCRIPTS section lists the main script and any scripts that were sourced.
+The PRE-EXISTING section lists any variables in the global environment
+that were used but not set by the script or console session. The INPUTS
+section lists any input files or URLs. The OUTPUTS section lists any
+output files. The CONSOLE section lists any output to the screen. The
+ERRORS &amp; WARNINGS section lists any error or warning messages that
+were generated when the script was executed. The NOTES section explains
+how to intepret the provenance summary.</p>
+<pre><code>PROVENANCE SUMMARY for hurricane_1.R
+
+ENVIRONMENT:
+Executed at 2022-08-01T14.13.23EDT
+Total execution time was 11.58 seconds
+Script last modified at 2022-06-03T14.24.10EDT
+Executed with R version 4.2.0 (2022-04-22 ucrt)
+Platform was x86_64, mingw32
+Operating system was Windows 10 x64 (build 19044)
+User interface was 2022.02.2+485 Prairie Trillium (desktop)
+Document converter was 2.18 @ C:\Users\erb709\AppData\Local\Pandoc\pandoc.exe
+Provenance was collected with rdtLite1.4
+Provenance is stored in C:/Prov/prov_hurricane_1
+Hash algorithm is md5
+
+LIBRARIES (loaded by script):
+cli 3.3.0
+codetools 0.2-18
+grid 4.2.0
+HurreconR 1.0
+lattice 0.20-45
+raster 3.5-21
+Rcpp 1.0.8.3
+rgdal 1.5-32
+rlang 1.0.3
+rstudioapi 0.13
+sp 1.5-0
+terra 1.5-34
+
+SCRIPTS:
+1[:] C:/TEST/hurricane_1.R
+
+PRE-EXISTING:
+z
+
+INPUTS:
+1[:] C:/Hurrecon/R/test/input/ids.csv
+2[:] C:/Hurrecon/R/test/input/sites.csv
+3[:] C:/Hurrecon/R/test/input/parameters.csv
+4[:] C:/Hurrecon/R/test/input/tracks.csv
+5[:] C:/Hurrecon/R/test/site/AL1935-03_Miami_FL.csv
+
+OUTPUTS:
+1[-] C:/TEST/dev.off.15.pdf
+
+CONSOLE:
+Rows: 150  Columns: 180...
+Number of storms = 2...
+AL1935-03 Miami FL...
+
+ERRORS &amp; WARNINGS:
+Error in eval(annot, environ, NULL): object &#39;y&#39; not found
+
+NOTES: Files are listed in the order of execution (script 1 = main script).
+The status of each file in its original location is marked as follows:
+File unchanged [:], File changed [+], File missing [-], Not checked [ ].
+Copies of original files are available on the provenance directory.
+
+Libraries loaded by the user&#39;s script at the time of execution are displayed.
+Note that some libraries may have been loaded before execution. Use details = 
+TRUE to see all loaded libraries along with script, file, and message details.</code></pre>
+<p>Here is an example of a summary with details = TRUE. In addition to
+the information displayed above, the LIBRARIES section includes
+libraries that were preloaded or loaded by rdtLite or rdt; the SCRIPTS,
+INPUTS, and OUTPUTS sections include file timestamp, hash value, and
+saved copy; and the CONSOLE and ERRORS &amp; WARNINGS sections include
+script and line numbers.</p>
+<pre><code>PROVENANCE SUMMARY for hurricane_1.R (details)
+
+ENVIRONMENT:
+Executed at 2022-08-01T14.13.23EDT
+Total execution time was 11.58 seconds
+Script last modified at 2022-06-03T14.24.10EDT
+Executed with R version 4.2.0 (2022-04-22 ucrt)
+Platform was x86_64, mingw32
+Operating system was Windows 10 x64 (build 19044)
+User interface was 2022.02.2+485 Prairie Trillium (desktop)
+Document converter was 2.18 @ C:\Users\erb709\AppData\Local\Pandoc\pandoc.exe
+Provenance was collected with rdtLite1.4
+Provenance is stored in C:/Prov/prov_hurricane_1
+Hash algorithm is md5
+
+LIBRARIES (loaded by script):
+cli 3.3.0
+codetools 0.2-18
+grid 4.2.0
+HurreconR 1.0
+lattice 0.20-45
+raster 3.5-21
+Rcpp 1.0.8.3
+rgdal 1.5-32
+rlang 1.0.3
+rstudioapi 0.13
+sp 1.5-0
+terra 1.5-34
+
+LIBRARIES (preloaded):
+base 4.2.0
+compiler 4.2.0
+datasets 4.2.0
+graphics 4.2.0
+grDevices 4.2.0
+methods 4.2.0
+rdtLite 1.4
+stats 4.2.0
+tools 4.2.0
+utils 4.2.0
+
+LIBRARIES (loaded by rdtLite):
+colorspace 2.0-3
+crayon 1.5.1
+digest 0.6.29
+dplyr 1.0.9
+ellipsis 0.3.2
+fansi 1.0.3
+generics 0.1.2
+ggplot2 3.3.6
+glue 1.6.2
+gtable 0.3.0
+jsonlite 1.8.0
+lifecycle 1.0.1
+magrittr 2.0.3
+munsell 0.5.0
+pillar 1.7.0
+pkgconfig 2.0.3
+provParseR 1.0
+provSummarizeR 1.5.1
+purrr 0.3.4
+R6 2.5.1
+scales 1.2.0
+sessioninfo 1.2.2
+stringi 1.7.6
+tibble 3.1.7
+tidyselect 1.1.2
+utf8 1.2.2
+vctrs 0.4.1
+
+SCRIPTS:
+1[:] C:/TEST/hurricane_1.R
+        Timestamp: 2022-06-03T14.24.10EDT
+        Hash:      53b32b1731d4d283cdcd997ce764aafe
+        Saved:     scripts/hurricane_1.R
+
+PRE-EXISTING:
+z
+
+INPUTS:
+1[:] C:/Hurrecon/R/test/input/ids.csv
+        Timestamp: 2022-07-06 17:13:52
+        Hash:      e95b5f231ad81a60cee0b73ba7e38358
+        Saved:     data/2-ids.csv
+2[:] C:/Hurrecon/R/test/input/sites.csv
+        Timestamp: 2020-05-20 11:47:56
+        Hash:      5212c02a8fd48d630153ce3292fc05d0
+        Saved:     data/4-sites.csv
+3[:] C:/Hurrecon/R/test/input/parameters.csv
+        Timestamp: 2020-05-20 11:48:56
+        Hash:      b40b24802bf121e6c3b536a06a7afaab
+        Saved:     data/5-parameters.csv
+4[:] C:/Hurrecon/R/test/input/tracks.csv
+        Timestamp: 2022-07-06 17:13:52
+        Hash:      a2dcab2d37e245c448955f5fd56dd73f
+        Saved:     data/6-tracks.csv
+5[:] C:/Hurrecon/R/test/site/AL1935-03_Miami_FL.csv
+        Timestamp: 2022-08-01 14:13:31
+        Hash:      c3e2252b1993dd380d43c92e5edf6276
+        Saved:     data/8-AL1935-03_Miami_FL.csv
+
+OUTPUTS:
+1[-] C:/TEST/dev.off.15.pdf
+        Timestamp: 2022-08-01 14:13:35
+        Hash:      4d870779ed9d0e1ff1fc4445d7210e94
+        Saved:     data/15-dev.off.15.pdf
+
+CONSOLE:
+Rows: 150  Columns: 180...
+        Line 7 in hurricane_1.R
+Number of storms = 2...
+        Line 9 in hurricane_1.R
+AL1935-03 Miami FL...
+        Line 13 in hurricane_1.R
+
+ERRORS &amp; WARNINGS:
+Error in eval(annot, environ, NULL): object &#39;y&#39; not found
+        Line 19 in hurricane_1.R
+
+NOTES: Files are listed in the order of execution (script 1 = main script).
+The status of each file in its original location is marked as follows:
+File unchanged [:], File changed [+], File missing [-], Not checked [ ].
+Copies of original files are available on the provenance directory.
+All libraries preloaded or loaded at the time of execution are displayed.</code></pre>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

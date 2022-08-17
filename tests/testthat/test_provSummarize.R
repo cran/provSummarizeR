@@ -21,3 +21,7 @@ test.data <- system.file("testdata", "files.json", package = "provSummarizeR", m
 test.expected <- system.file("testsummaries", "files.expected", package = "provSummarizeR", mustWork=TRUE)
 expect_known_output(prov.summarize.file(test.data, details = TRUE, check = FALSE), test.expected, update = FALSE)
 
+# Test details = FALSE
+test.data <- system.file("testdata", "no-details.json", package = "provSummarizeR", mustWork=TRUE)
+test.expected <- system.file("testsummaries", "no-details.expected", package = "provSummarizeR", mustWork=TRUE)
+expect_known_output(prov.summarize.file(test.data, details = FALSE, check = FALSE), test.expected, update = FALSE)

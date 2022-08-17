@@ -1,3 +1,7 @@
+# provSummarizeR 1.5.1
+
+* Updated to show how libraries were loaded (by script, by rdtLite, or preloaded).
+
 # provSummarizeR 1.5
 
 * If the same file is read and written (or written and read) with no change

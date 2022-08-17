@@ -1,39 +1,77 @@
 PROVENANCE SUMMARY for Console Session (details)
 
 ENVIRONMENT:
-Executed at 2022-06-23T15.36.53EDT
-Total execution time was 1.19 seconds
+Executed at 2022-08-01T08.42.46EDT
+Total execution time was 0.53 seconds
 Executed with R version 4.2.0 (2022-04-22 ucrt)
-Platform was x86_64-w64-mingw32/x64 (64-bit)
+Platform was x86_64, mingw32
 Operating system was Windows 10 x64 (build 19044)
-Provenance was collected with rdtLite1.3.1
+User interface was RTerm
+Document converter was 2.18 @ C:\Users\erb709\AppData\Local\Pandoc\pandoc.exe
+Provenance was collected with rdtLite1.4
 Provenance is stored in C:/GitHub/provSummarizeR/inst/testscripts/prov_console
 Hash algorithm is md5
 
-LIBRARIES:
+LIBRARIES (loaded by script):
+None
+
+LIBRARIES (preloaded):
 base 4.2.0
+compiler 4.2.0
 datasets 4.2.0
-ggplot2 3.3.6
 graphics 4.2.0
 grDevices 4.2.0
 methods 4.2.0
+rdtLite 1.4
 stats 4.2.0
 utils 4.2.0
+
+LIBRARIES (loaded by rdtLite):
+cli 3.3.0
+colorspace 2.0-3
+crayon 1.5.1
+digest 0.6.29
+dplyr 1.0.9
+ellipsis 0.3.2
+fansi 1.0.3
+generics 0.1.2
+ggplot2 3.3.6
+glue 1.6.2
+grid 4.2.0
+gtable 0.3.0
+jsonlite 1.8.0
+lifecycle 1.0.1
+magrittr 2.0.3
+munsell 0.5.0
+pillar 1.7.0
+pkgconfig 2.0.3
+purrr 0.3.4
+R6 2.5.1
+rlang 1.0.3
+scales 1.2.0
+sessioninfo 1.2.2
+stringi 1.7.6
+tibble 3.1.7
+tidyselect 1.1.2
+tools 4.2.0
+utf8 1.2.2
+vctrs 0.4.1
 
 PRE-EXISTING:
 None
 
 INPUTS:
 1[ ] C:/GitHub/provSummarizeR/inst/testscripts/console.R
-     2021-10-07T11.26.17EDT
-     c7cf52a3ea1b34ed3ae28d54edd6a3e1
-     data/2-Console.R
+        Timestamp: 2021-10-07T11.26.17EDT
+        Hash:      c7cf52a3ea1b34ed3ae28d54edd6a3e1
+        Saved:     data/2-Console.R
 
 OUTPUTS:
 None
 
-NOTE: Files are listed in the order of execution (script 1 = main script).
+NOTES: Files are listed in the order of execution (script 1 = main script).
 The status of each file in its original location is marked as follows:
 File unchanged [:], File changed [+], File missing [-], Not checked [ ].
 Copies of original files are available on the provenance directory.
+All libraries preloaded or loaded at the time of execution are displayed.
 

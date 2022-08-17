@@ -83,9 +83,15 @@ The provenance summary includes:
   \item Any errors or warnings.
 }
 
-If details = TRUE, additional details are displayed, including loaded and attached packages
-with version numbers; timestamps, hash values, and stored copies for scripts and data files; 
-and source code locations for messages.
+If details = TRUE, additional details are displayed, including (1) libraries loaded by the 
+user's code, loaded before the script started, or loaded by rtdtLite or rdt, with version 
+numbers; (2) timestamps, hash values, and stored copies for scripts and data files; and 
+(3) source code locations for messages.
+
+If details = FALSE, only libraries loaded by the user's code at the time of execution 
+are displayed. Note that some libraries used by the script might have been loaded before 
+the script was executed. Run provSummarizeR with details = TRUE to see a complete list of 
+loaded libraries.
 
 If check = TRUE, the user's file system is checked to see if input files, output files,
 and scripts (in their original locations) are unchanged, changed, or missing. The status 

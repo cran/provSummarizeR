@@ -1,3 +1,13 @@
+---
+title: "Overview of provSummarizeR"
+date: "17 August 2022"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
 # provSummarizeR
 Reads the provenance collected by rdtLite or rdt from execution of a script or commands
 in the console. Creates a human-readable summary of the provenance, including details 

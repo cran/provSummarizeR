@@ -39,9 +39,15 @@
 #'   \item Any errors or warnings.
 #' }
 #' 
-#' If details = TRUE, additional details are displayed, including loaded and attached packages
-#' with version numbers; timestamps, hash values, and stored copies for scripts and data files; 
-#' and source code locations for messages.
+#' If details = TRUE, additional details are displayed, including (1) libraries loaded by the 
+#' user's code, loaded before the script started, or loaded by rtdtLite or rdt, with version 
+#' numbers; (2) timestamps, hash values, and stored copies for scripts and data files; and 
+#' (3) source code locations for messages.
+#'
+#' If details = FALSE, only libraries loaded by the user's code at the time of execution 
+#' are displayed. Note that some libraries used by the script might have been loaded before 
+#' the script was executed. Run provSummarizeR with details = TRUE to see a complete list of 
+#' loaded libraries.
 #'
 #' If check = TRUE, the user's file system is checked to see if input files, output files,
 #' and scripts (in their original locations) are unchanged, changed, or missing. The status 
@@ -423,15 +429,63 @@ generate.environment.summary <- function(prov, details, script.file) {
 #' @noRd
 
 generate.library.summary <- function (prov, details) {
-    if (details == FALSE) {
-        return("")
+    libs <- provParseR::get.libs(prov)
+ 
+    script.libraries <- libs[libs$whereLoaded == "script", ]
+    preloaded.libraries <- libs[libs$whereLoaded == "preloaded", ]
+    rdtLite.libraries <- libs[libs$whereLoaded == "rdtLite", ]
+    unknown.libraries <- libs[libs$whereLoaded == "unknown", ]
+
+    # Show libraries of unknown origin
+    if (is.null(libs$whereLoaded) || nrow(unknown.libraries) > 0) {
+        if (details == TRUE) {
+            st1 <- "LIBRARIES:\n"
+            if (nrow(libs) > 0) {
+                st2 <- paste(libs$name, libs$version, collapse="\n")
+            } else {
+                st2 <- "None"
+            }
+            st <- paste(st1, st2, "\n\n", sep="")
+        } else {
+            st <- ""
+        }
+
     } else {
-        libs <- provParseR::get.libs(prov)
-        st1 <- "LIBRARIES:\n"
-        st2 <- paste(libs$name, libs$version, collapse="\n")
+        # Show libraries loaded by script
+        st1 <- "LIBRARIES (loaded by script):\n"
+        if (nrow(script.libraries) > 0) {
+            st2 <- paste(script.libraries$name, script.libraries$version, collapse="\n")
+        } else {
+            if (details == TRUE) {
+                st2 <- "None"
+            } else {
+                st2 <- "None (see notes below)"
+            }
+        }
         st <- paste(st1, st2, "\n\n", sep="")
-        return(st)
+
+        if (details == TRUE) {
+            # Show preloaded libraries
+            st1 <- "LIBRARIES (preloaded):\n"
+            if (nrow(preloaded.libraries) > 0) {
+                st2 <- paste(preloaded.libraries$name, preloaded.libraries$version, collapse="\n")
+            } else {
+                st2 <- "None"
+            }
+            st <- paste(st, st1, st2, "\n\n", sep="")
+
+            # Show libraries loaded by rdtLite
+            st1 <- "LIBRARIES (loaded by rdtLite):\n"
+            if (nrow(rdtLite.libraries) > 0) {
+                st2 <- paste(rdtLite.libraries$name, rdtLite.libraries$version, collapse="\n")
+            } else {
+                st2 <- "None"
+            }
+            st <- paste(st, st1, st2, "\n\n", sep="")
+        }
     }
+
+    return(st)
 }
 
 #' generate.script.summary creates a text summary of the scripts sourced.
@@ -474,9 +528,9 @@ generate.script.summary <- function (prov, details, script.file, check) {
             st <- paste(st, i, tag, " ", location, "\n", sep="")
 
             if (details == TRUE) {
-                st <- paste(st, "     ", timestamp, "\n", sep="")
-                st <- paste(st, "     ", hash, "\n", sep="")
-                st <- paste(st, "     ", saved.file, "\n", sep="")
+                st <- paste(st, "        Timestamp: ", timestamp, "\n", sep="")
+                st <- paste(st, "        Hash:      ", hash, "\n", sep="")
+                st <- paste(st, "        Saved:     ", saved.file, "\n", sep="")
             }
         }
         st <- paste(st, "\n", sep="")
@@ -559,20 +613,20 @@ generate.file.summary <- function (direction, files, prov, details, check) {
                 st <- paste(st, i, "[ ] ", files[i, "name"], "\n", sep="")
             }
 
-            if (details) {
+            if (details == TRUE) {
                 if (is.na(files[i, "filetime"])) {
                     if (files[i, "timestamp"] != "") {
-                        st <- paste(st, "     ", files[i, "timestamp"], "\n", sep="")
+                        st <- paste(st, "        Timestamp: ", files[i, "timestamp"], "\n", sep="")
                     }
                 } else {
-                    st <- paste(st, "     ", files[i, "filetime"], "\n", sep="")
+                    st <- paste(st, "        Timestamp: ", files[i, "filetime"], "\n", sep="")
                 }
                 
                 if (files[i, "hash"] != "") {
-                    st <- paste(st, "     ", files[i, "hash"], "\n", sep="")
+                    st <- paste(st, "        Hash:      ", files[i, "hash"], "\n", sep="")
                 }
                 if (files[i, "value"] != "") {
-                    st <- paste(st, "     ", files[i, "value"], "\n", sep="")
+                    st <- paste(st, "        Saved:     ", files[i, "value"], "\n", sep="")
                 }
             }
         }
@@ -618,7 +672,7 @@ generate.error.summary <- function (prov, details, script.file) {
     # get error nodes
     } else {
         error.nodes <- provParseR::get.error.nodes(prov)
-        return(generate.message.summary(prov, error.nodes, details, "ERRORS"))
+        return(generate.message.summary(prov, error.nodes, details, "ERRORS & WARNINGS"))
     }
 }
 
@@ -661,16 +715,16 @@ generate.message.summary <- function (prov, output.nodes, details, msg) {
         st <- paste(st, info, "\n", sep="")
         if (!is.na (script.name) && details) {
             if (is.na(output.report[i, "startLine"])) {
-                st <- paste(st, "     Line", sep="")
+                st <- paste(st, "        Line", sep="")
                 st <- paste(st, "  ", output.report[i, "name"], "\n", sep="")
 
             } else if (output.report[i, "startLine"] == output.report[i, "endLine"] || 
                 is.na (output.report[i, "endLine"])) {  
 
-                st <- paste(st, "     Line ", output.report[i, "startLine"], sep="")
+                st <- paste(st, "        Line ", output.report[i, "startLine"], sep="")
 
             } else {
-                st <- paste(st, "     Lines ", output.report[i, "startLine"], " to ", output.report[i, "endLine"], sep="")
+                st <- paste(st, "        Lines ", output.report[i, "startLine"], " to ", output.report[i, "endLine"], sep="")
             }
 
             st <- paste(st, " in ", script.name, "\n", sep="")
@@ -687,14 +741,19 @@ generate.message.summary <- function (prov, output.nodes, details, msg) {
 
 get.notes <- function(details) {
     
-    notes <- "NOTE: Files are listed in the order of execution (script 1 = main script).
+    notes <- "NOTES: Files are listed in the order of execution (script 1 = main script).
 The status of each file in its original location is marked as follows:
 File unchanged [:], File changed [+], File missing [-], Not checked [ ].
 Copies of original files are available on the provenance directory.\n"
 
     if (details == FALSE) {
-        notes <- paste(notes, "Use details = TRUE to see a list of packages that were loaded or attached
-at the time of execution along with script, file, and message details.\n", sep="")
+        notes <- paste(notes, "\nLibraries loaded by the user's script at the time of execution are displayed.
+Note that some libraries may have been loaded before execution. Use details = 
+TRUE to see all loaded libraries along with script, file, and message details.\n", sep="")
+    }
+
+    if (details == TRUE) {
+        notes <- paste(notes, "All libraries preloaded or loaded at the time of execution are displayed.\n", sep="")
     }
 
     notes <- paste(notes, "\n", sep="")

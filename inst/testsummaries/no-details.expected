@@ -1,0 +1,46 @@
+PROVENANCE SUMMARY for no-details.R
+
+ENVIRONMENT:
+Executed at 2022-08-01T09.04.52EDT
+Total execution time was 1.5 seconds
+Script last modified at 2022-06-23T12.03.21EDT
+Executed with R version 4.2.0 (2022-04-22 ucrt)
+Platform was x86_64, mingw32
+Operating system was Windows 10 x64 (build 19044)
+User interface was 2022.02.2+485 Prairie Trillium (desktop)
+Document converter was 2.18 @ C:\Users\erb709\AppData\Local\Pandoc\pandoc.exe
+Provenance was collected with rdtLite1.4
+Provenance is stored in C:/Prov/prov_no-details
+Hash algorithm is md5
+
+LIBRARIES (loaded by script):
+None (see notes below)
+
+SCRIPTS:
+1[ ] C:/TEST/no-details.R
+
+PRE-EXISTING:
+None
+
+INPUTS:
+1[ ] C:/TEST/warnings.r
+2[ ] https://harvardforest.fas.harvard.edu/
+
+OUTPUTS:
+1[ ] C:/Users/erb709/AppData/Local/Temp/RtmponiBAd/file46bc2a8352a9
+
+CONSOLE:
+None
+
+ERRORS & WARNINGS:
+None
+
+NOTES: Files are listed in the order of execution (script 1 = main script).
+The status of each file in its original location is marked as follows:
+File unchanged [:], File changed [+], File missing [-], Not checked [ ].
+Copies of original files are available on the provenance directory.
+
+Libraries loaded by the user's script at the time of execution are displayed.
+Note that some libraries may have been loaded before execution. Use details = 
+TRUE to see all loaded libraries along with script, file, and message details.
+
